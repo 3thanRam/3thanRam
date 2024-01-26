@@ -1,10 +1,11 @@
-### Hi there 👋
-I'm currently doing the second year of my Masters in Physics at Aix-Marseille University
-
-I did my M1 at Strasbourg University and my bachelors at Rennes1 University
+### About me
+- Second year Master's Student in Physics at Aix-Marseille University
+- M1 at Strasbourg University & bachelors at Rennes1 University
 
 I'm interested in :
 
 - Theoretical & Particle physics
 - Simulations & Numerical Calculations
 
+Programming Languages: Python & C++
+Boring Languages: English & French
