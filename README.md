@@ -10,4 +10,5 @@ I'm interested in :
 Programming Languages: Python & C++
 Boring Languages: English & French
 
+![anim](https://github.com/3thanRam/3thanRam/blob/main/animation.gif)
 

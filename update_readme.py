@@ -1,24 +1,38 @@
-from jinja2 import Environment, FileSystemLoader
-import datetime
+import numpy as np
+from matplotlib.animation import FuncAnimation
+import matplotlib.pyplot as plt
+import os
 
 def main():
-    # Get the current timestamp in UTC and format it
-    #updated_at = datetime.datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ')
-    N=6
-    # Articles data
-    list_data = [[0 for i in range(N)] for j in range(N)]    
+    Figure = plt.figure()
+    
+    # creating a plot
+    lines_plotted = plt.plot([])     
+    line_plotted = lines_plotted[0]
+    
+    plt.xlim(0,2*np.pi)  
+    plt.ylim(-1.1,1.1)    
+    
+    # initialising x from 0 to 2∏
+    x = np.linspace(0,2*np.pi,100)   
+    #initially
+    y = 0
 
-    # Set up Jinja2 environment
-    env = Environment(loader=FileSystemLoader('templates'))
-    template = env.get_template('README.md.j2')
+    # function takes frame as an input
+    def AnimationFunction(frame): 
+    
+        # setting y according to frame
+        # number and + x. It's logic
+        y = np.cos(x+2*np.pi*frame/100) 
+    
+        # line is set with new values of x and y
+        line_plotted.set_data((x, y))
+    
+    anim_created = FuncAnimation(Figure, AnimationFunction, frames=100, interval=25)
 
-    # Render and merge templates
-    rendered_readme = template.render(list=list_data)
-
-    # Save to README.md
-    with open("README.md", "w") as f:
-        f.write(rendered_readme)
-
+    path=os.path.dirname(os.path.abspath(__file__))
+    anim_created.save(filename=path+"/animation.gif", writer="pillow")
+    plt.close()
 
 if __name__ == "__main__":
     main()
