@@ -26,6 +26,7 @@ def bounceball():
     ax.set_ylim(Ymin,Ymax)
     ax.get_xaxis().set_visible(False)
     ax.get_yaxis().set_visible(False)
+    plt.subplots_adjust(top=1, bottom=0, right=1, left=0, hspace=0, wspace=0)
 
 
     x,y,vx,vy=Random([Xmin,Xmax],[Ymin,Ymax])
@@ -55,20 +56,8 @@ def bounceball():
         return pen,
 
     anim_created = FuncAnimation(fig, animate, frames=150, blit=False)
-    #path=os.path.dirname(os.path.abspath(__file__))
     anim_created.save(filename="./animation.gif",fps=25, writer="pillow")
 
-    #forward = ffmpeg.input('./animation.gif')
-    #(
-    #    ffmpeg
-    #    .concat(
-    #        forward,
-    #        forward.filter('reverse'),
-    #    )
-    #    .output('./animationfull.gif')
-    #    .global_args('-y')
-    #    .run()
-    #)
     
     plt.close()
 
