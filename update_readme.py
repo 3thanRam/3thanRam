@@ -3,7 +3,7 @@ import datetime
 
 def main():
     # Get the current timestamp in UTC and format it
-    updated_at = datetime.datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ')
+    #updated_at = datetime.datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ')
 
     # Articles data
     articles_data = [
