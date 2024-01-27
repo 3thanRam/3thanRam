@@ -54,7 +54,7 @@ def bounceball():
         pen.set_offsets(np.c_[x, y])
         return pen,
 
-    anim_created = FuncAnimation(fig, animate, frames=150, blit=True)
+    anim_created = FuncAnimation(fig, animate, frames=150, blit=False)
     path=os.path.dirname(os.path.abspath(__file__))
     anim_created.save(filename="./animation.gif",fps=25, writer="pillow")
 
