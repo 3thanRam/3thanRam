@@ -34,12 +34,19 @@ jobs:
       - name: Setup FFmpeg
         uses: AnimMouse/setup-ffmpeg@v1
       - run: ffmpeg -y -i animation.gif -filter_complex "[0:v]reverse,fifo[r];[0:v][r] concat=n=2:v=1 [v]" -map "[v]" animationfull.gif
-      - name: Commit and push
-        run: |
-          git config user.name github-actions
-          git config user.email github-actions@github.com
-          git add animation.gif
-          git add animationfull.gif
-          git add README.md
-          git commit -m "Update README.md with dynamic content"
-          git push origin main
+      # Push the changes
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: master
+          force: true
+#- name: Commit and push
+#  run: |
+#    git config user.name github-actions
+#    git config user.email github-actions@github.com
+#    git add animation.gif
+#    git add animationfull.gif
+#    git add README.md
+#    git commit -m "Update README.md with dynamic content"
+#    git push origin main
