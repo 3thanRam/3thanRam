@@ -2,10 +2,7 @@ import numpy as np
 from matplotlib.animation import FuncAnimation
 import random
 import matplotlib
-import ffmpeg
-
 import matplotlib.pyplot as plt
-import os
 dt=0.1
 radius=0.5
 
@@ -57,8 +54,6 @@ def bounceball():
 
     anim_created = FuncAnimation(fig, animate, frames=150, blit=False)
     anim_created.save(filename="./animation.gif",fps=25, writer="pillow")
-
-    
     plt.close()
 
 if __name__ == "__main__":

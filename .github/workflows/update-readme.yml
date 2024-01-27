@@ -28,7 +28,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install matplotlib numpy ffmpeg-python
+          pip install matplotlib numpy
       - name: Run python script
         run: python update_readme.py
       - name: Setup FFmpeg
@@ -38,8 +38,8 @@ jobs:
         run: |
           git config user.name github-actions
           git config user.email github-actions@github.com
-          git add README.md
           git add animation.gif
           git add animationfull.gif
+          git add README.md
           git commit -m "Update README.md with dynamic content"
           git push origin main
