@@ -1,5 +1,5 @@
 
-name: "Update README with Jinja2"
+name: "Update README with python script and ffmpeg"
 
 # Controls when the workflow will run
 on:
