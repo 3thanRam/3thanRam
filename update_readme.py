@@ -20,7 +20,7 @@ def bounceball(Nballs,Lmin,Lmax):
     
     fig, ax = plt.subplots(figsize=(figsize, figsize))
     
-    ax.set_facecolor((43/255,43/255,43/255))
+    ax.set_facecolor((13/255,17/255,23/255))
 
     ax.set_xlim(Lmin,Lmax)
     ax.set_ylim(Lmin,Lmax)
