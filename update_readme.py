@@ -4,10 +4,9 @@ import datetime
 def main():
     # Get the current timestamp in UTC and format it
     #updated_at = datetime.datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ')
-    N=10
+    N=6
     # Articles data
-    list_data = [[i for i in range(N)] for j in range(N)]
-
+    list_data = [[0 for i in range(N)] for j in range(N)]    
 
     # Set up Jinja2 environment
     env = Environment(loader=FileSystemLoader('templates'))
