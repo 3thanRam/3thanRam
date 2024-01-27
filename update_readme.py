@@ -6,7 +6,7 @@ def main():
     #updated_at = datetime.datetime.utcnow().strftime('%Y-%m-%dT%H:%M:%SZ')
     N=10
     # Articles data
-    list_data = [{"content": [i for i in range(N)]} for j in range(N)]
+    list_data = [[i for i in range(N)] for j in range(N)]
 
 
     # Set up Jinja2 environment
