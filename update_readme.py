@@ -15,7 +15,7 @@ def Initvalues(N,Circleradius):
     
 def bounceball(Nballs,Lmin,Lmax):
     figsize=6
-    Nframes=500
+    Nframes=400
     fps=40
     
     fig, ax = plt.subplots(figsize=(figsize, figsize))
