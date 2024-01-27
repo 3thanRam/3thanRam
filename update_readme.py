@@ -57,7 +57,7 @@ def bounceball():
     anim_created = FuncAnimation(fig, animate, frames=150, blit=True)
     path=os.path.dirname(os.path.abspath(__file__))
     anim_created.save(filename=path+"/animation.mp4",fps=25, writer="ffmpeg")
-    
+
     forward = ffmpeg.input(path+'/animation.mp4')
     (
         ffmpeg
@@ -66,10 +66,11 @@ def bounceball():
             forward.filter('reverse'),
         )
         .output(path+'/animationfull.mp4')
+        .global_args('-y')
         .run()
     )
     
-    plt.close()
+    #plt.close()
 
 if __name__ == "__main__":
     bounceball()
