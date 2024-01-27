@@ -1,0 +1,40 @@
+
+name: "Update README with Jinja2"
+
+# Controls when the workflow will run
+on:
+  # run automatically every 24 hours
+  schedule:
+    - cron: "* */24 * * *" 
+  push:
+    branches:
+      - 'main'
+
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v3
+        with:
+          python-version: '3.x'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install jinja2
+      - name: Run python script
+        run: python update_readme.py
+      - name: Commit and push
+        run: |
+          git config user.name github-actions
+          git config user.email github-actions@github.com
+          git add README.md
+          git commit -m "Update README.md with dynamic content"
+          git push origin main
