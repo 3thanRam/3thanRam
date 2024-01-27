@@ -11,18 +11,3 @@ Programming Languages: Python & C++
 Boring Languages: English & French
 
 
-<## Latest list
-
-
-[0, 0, 0, 0, 0, 0]
-
-[0, 0, 0, 0, 0, 0]
-
-[0, 0, 0, 0, 0, 0]
-
-[0, 0, 0, 0, 0, 0]
-
-[0, 0, 0, 0, 0, 0]
-
-[0, 0, 0, 0, 0, 0]
->
