@@ -10,5 +10,4 @@ I'm interested in :
 Programming Languages: Python & C++
 Boring Languages: English & French
 
-![anim](https://github.com/3thanRam/3thanRam/blob/main/animation.gif)
-
+![Snake animation](https://raw.githubusercontent.com/3thanRam/3thanRam/output/github-contribution-grid-snake-dark.svg)
