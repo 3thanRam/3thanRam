@@ -1,17 +1,17 @@
-Ahhhhhhhhhhh
+### About me
+- Second year Master's Student in Physics at Aix-Marseille University
+- M1 at Strasbourg University & bachelors at Rennes1 University
 
-## Latest Articles
+I'm interested in :
+
+- Theoretical & Particle physics
+- Simulations & Numerical Calculations
+
+Programming Languages: Python & C++
+Boring Languages: English & French
 
 
-- [My First Blog Post](https://myblog.com/first-post)
-
-- [Understanding Jinja2](https://myblog.com/jinja2)
-
-weathers.md.j2:
-
-## Weather Forecast
+## Latest list
 
 
-- 2023-09-15: Sunny
-
-- 2023-09-16: Cloudy
+- [0](0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
