@@ -19,18 +19,18 @@ def bounceball(Nballs,Lmin,Lmax):
     fps=40
     
     fig, ax = plt.subplots(figsize=(figsize, figsize))
-    fig.patch.set_alpha(0.0)
-    plt.rcParams['savefig.transparent'] = True
+    
+    ax.set_facecolor((43/255,43/255,43/255))
+
     ax.set_xlim(Lmin,Lmax)
     ax.set_ylim(Lmin,Lmax)
     ax.get_xaxis().set_visible(False)
     ax.get_yaxis().set_visible(False)
     plt.subplots_adjust(top=1, bottom=0, right=1, left=0, hspace=0, wspace=0)
 
-
     Circleradius=(Lmax-Lmin)/2
     center=np.array([Circleradius,Circleradius])
-    circle = plt.Circle(center, Circleradius,linewidth=3, color='black',fill=False)
+    circle = plt.Circle(center, Circleradius,linewidth=3, color='grey',fill=False)
 
     R,V,size,color = Initvalues(Nballs,Circleradius)
 
@@ -55,7 +55,7 @@ def bounceball(Nballs,Lmin,Lmax):
         return pen,
 
     anim_created = FuncAnimation(fig, animate, frames=Nframes, blit=False)
-    anim_created.save(filename="./animation.gif",fps=fps, writer="pillow",savefig_kwargs={'transparent': True})
+    anim_created.save(filename="./animation.gif",fps=fps, writer="pillow")
 
 if __name__ == "__main__":
     bounceball(15,0,15)
