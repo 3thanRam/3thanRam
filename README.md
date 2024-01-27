@@ -10,4 +10,4 @@ I'm interested in :
 Programming Languages: Python & C++
 Boring Languages: English & French
 
-
+![Snake animation](https://raw.githubusercontent.com/3thanRam/3thanRam/output/github-contribution-grid-snake-dark.svg)
