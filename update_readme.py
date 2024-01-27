@@ -14,7 +14,7 @@ def Initvalues(N,Circleradius):
 
     
 def bounceball(Nballs,Lmin,Lmax):
-    figsize=6
+    figsize=3
     Nframes=400
     fps=40
     
