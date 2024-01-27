@@ -30,7 +30,7 @@ def bounceball():
     x, y = 5*(1+np.random.rand(2, Nballs))
     vx,vy=4*np.random.rand(2, Nballs)
     size = 0.6 +np.random.rand(Nballs)
-    color = np.random.rand(100)
+    color = 0.5*np.ones(Nballs)#np.random.rand(100)
 
     pen=matplotlib.collections.EllipseCollection(widths=size, heights=size,angles=np.zeros_like(size),offsets=[],units="xy",facecolors=plt.cm.hsv(color),edgecolors="black",transOffset=ax.transData,)
     ax.add_collection(pen)

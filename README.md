@@ -12,3 +12,4 @@ Programming Languages: Python & C++
 Boring Languages: English & French
 
 <img src="https://github.com/3thanRam/3thanRam/blob/main/animationfull.gif" width="25%" height="25%"/>
+![animation gif](https://github.com/3thanRam/3thanRam/blob/main/animationfull.gif?)
