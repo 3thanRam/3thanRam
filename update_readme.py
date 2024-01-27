@@ -55,20 +55,20 @@ def bounceball():
         return pen,
 
     anim_created = FuncAnimation(fig, animate, frames=150, blit=False)
-    path=os.path.dirname(os.path.abspath(__file__))
+    #path=os.path.dirname(os.path.abspath(__file__))
     anim_created.save(filename="./animation.gif",fps=25, writer="pillow")
 
-    forward = ffmpeg.input('./animation.gif')
-    (
-        ffmpeg
-        .concat(
-            forward,
-            forward.filter('reverse'),
-        )
-        .output('./animationfull.gif')
-        .global_args('-y')
-        .run()
-    )
+    #forward = ffmpeg.input('./animation.gif')
+    #(
+    #    ffmpeg
+    #    .concat(
+    #        forward,
+    #        forward.filter('reverse'),
+    #    )
+    #    .output('./animationfull.gif')
+    #    .global_args('-y')
+    #    .run()
+    #)
     
     plt.close()
 
