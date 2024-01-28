@@ -2,6 +2,7 @@ import numpy as np
 from matplotlib.animation import FuncAnimation
 from matplotlib.collections import EllipseCollection
 import matplotlib.pyplot as plt
+from datetime import datetime
 dt=0.02
 g=10
 
@@ -10,14 +11,14 @@ def bounceball(Nballs,Lmin,Lmax):
     Nframes=200
     Traillength=20
     fps=40
-
+    sizemax=2*(Lmax-Lmin)/Nballs
     Mid=(Lmax-Lmin)/2
-    Circleradius=0.95*Mid
+    Circleradius=0.98*Mid
     center=np.array([Mid,Mid])
-    R=(2*np.random.rand(2, Nballs)-1)*(Circleradius-3)*np.sqrt(2)/2+Mid 
+    R=(2*np.random.rand(2, Nballs)-1)*(Circleradius-sizemax*1.1)*np.sqrt(2)/2+Mid 
     V=6*np.random.rand(2, Nballs)
-    size = 0.5 +2*np.random.rand(Nballs)
-    color = np.random.rand(Nballs)
+    size=0.5+(sizemax-0.5)*np.random.rand(Nballs)
+    color = 0.15+0.85*np.random.rand(Nballs)
 
 
     fig, ax = plt.subplots(figsize=(figsize, figsize))
@@ -27,12 +28,15 @@ def bounceball(Nballs,Lmin,Lmax):
     ax.get_xaxis().set_visible(False)
     ax.get_yaxis().set_visible(False)
     plt.subplots_adjust(top=1, bottom=0, right=1, left=0, hspace=0, wspace=0)
+
+    rect = plt.Rectangle((0,0), Lmax,Lmax,linewidth=5, color='grey',fill=False)
+    ax.add_patch(rect)
     circle = plt.Circle(center, Circleradius,linewidth=3, color='grey',fill=False)
     ax.add_patch(circle)
     
     trail_positions = np.array([[R[dim, i] * np.ones(Traillength) for i in range(Nballs)] for dim in range(2)])
     
-    widths=np.ones(Nballs*Traillength)
+    widths=0.5*np.ones(Nballs*Traillength)
     widths[(np.arange(Nballs*Traillength)+1)%Traillength==0]=4
 
     fullsize=np.zeros(Nballs*Traillength)
@@ -40,9 +44,6 @@ def bounceball(Nballs,Lmin,Lmax):
     for n in range(Nballs):
         fullcolor[n*Traillength:(n+1)*Traillength]=color[n]
         fullsize[n*Traillength:(n+1)*Traillength]=size[n]*(Traillength-np.arange(Traillength))/Traillength
-    
-
-
     
     pen=EllipseCollection(widths=fullsize, heights=fullsize,linewidths=widths,angles=np.zeros_like(fullsize),offsets=[],units="xy",facecolors=plt.cm.hsv(fullcolor),edgecolors="black",transOffset=ax.transData,)
     ax.add_collection(pen)
@@ -80,5 +81,4 @@ def bounceball(Nballs,Lmin,Lmax):
     anim_created.save(filename="./animation.gif",fps=fps, writer="pillow")
 
 if __name__ == "__main__":
-    bounceball(20,0,15)
-    
+    bounceball(int(datetime.today().day),0,15)
