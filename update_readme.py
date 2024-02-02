@@ -11,7 +11,7 @@ def bounceball(Nballs,Lmin,Lmax):
     Nframes=200
     Traillength=20
     fps=40
-    sizemax=2*(Lmax-Lmin)/Nballs
+    sizemax=(Lmax-Lmin)/(Nballs+2)
     Mid=(Lmax-Lmin)/2
     Circleradius=0.98*Mid
     center=np.array([Mid,Mid])
