@@ -18,7 +18,7 @@ def bounceball(Nballs,Lmin,Lmax):
     R=(2*np.random.rand(2, Nballs)-1)*(Circleradius-sizemax*1.1)*np.sqrt(2)/2+Mid 
     V=6*np.random.rand(2, Nballs)
     size=0.5+(sizemax-0.5)*np.random.rand(Nballs)
-    color = 0.15+0.85*np.random.rand(Nballs)
+    color = np.random.rand(Nballs)
 
 
     fig, ax = plt.subplots(figsize=(figsize, figsize))
@@ -54,11 +54,13 @@ def bounceball(Nballs,Lmin,Lmax):
         R[0]+= V[0]*dt
         R[1]+= V[1]*dt-0.5*g*dt*dt
         V[1]-=g*dt
-        for ind in outbounds(R,center):
+        Bounceinds=outbounds(R,center)
+        for ind in Bounceinds:
             theta=np.arctan2(R[1,ind]-center[1],R[0,ind]-center[0])
             Vnorm=np.linalg.norm(V[:,ind])
             R[:,ind]=np.array([center[0]+(Circleradius-0.5*size[ind])*np.cos(theta),center[1]+(Circleradius-0.5*size[ind])*np.sin(theta)])
             V[:,ind]=np.array([Vnorm*np.cos(theta+np.pi),Vnorm*np.sin(theta+np.pi)])
+            fullcolor[ind*Traillength:(ind+1)*Traillength]=np.random.rand(1)
         
         
         
@@ -74,6 +76,8 @@ def bounceball(Nballs,Lmin,Lmax):
         for b in range(Nballs):
             fullXoff+=[*trail_positions[0,b,:]]
             fullYoff+=[*trail_positions[1,b,:]]
+        if len(Bounceinds)>0:
+            pen.set_facecolors(plt.cm.hsv(fullcolor))
         pen.set_offsets(np.c_[fullXoff,fullYoff])   
         return pen,
 
