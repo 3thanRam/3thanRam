@@ -10,5 +10,5 @@ I'm interested in :
 
 Programming Languages: Python & C++
 
-Boring Languages: English & French
+Spoken Languages: English & French
 
